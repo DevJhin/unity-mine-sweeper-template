@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709e7384b4489bb4fbcdb49f37f03cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileManager: {fileID: 1118007572}
+  stageManager: {fileID: 0}
   audioManager: {fileID: 339912839}
   tileRow: 8
   tileCol: 8
@@ -567,7 +567,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Icon
 --- !u!222 &445884104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -837,6 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85d43024e7014c43bb61d01f981ce8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: a188fc3a34311a440a87f9abe1477ddc, type: 2}
   normalTilePrefab: {fileID: 0}
   mineTilePrefab: {fileID: 0}
 --- !u!4 &1118007573
@@ -914,7 +915,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -139.9, y: 82.2}
+  m_AnchoredPosition: {x: -381, y: 234}
   m_SizeDelta: {x: 50, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1302268045

@@ -4,44 +4,47 @@ using UnityEngine;
 
 namespace MineSweeper
 {
-    public enum TileType { Normal, Mine, Special}
-    public enum TileState {Interactable, Flag, Disabled}
+    public enum TileType { Normal = 0, Mine = -1, Special }
+    public enum TileState { Active, Flag, Sweeped }
 
     public class Tile
     {
-        public TileType Type { get; private set; }
-        public TileState State { get; private set; }
+        public TileType Type { get; set; }
+        public TileState State { get; set; }
 
         public int MineCount { get; set; }
 
-        public Tile(TileType type)
+        protected Tile(TileType type)
         {
             Type = type;
         }
 
         public virtual void OnClick()
         {
-            State = TileState.Disabled;
+            if (State == TileState.Active)
+            {
+                State = TileState.Sweeped;
+            }
         }
 
-        public void CreateTile(TileType tileType)
+        public virtual void OnFlag()
         {
-            switch (tileType)
+            if (State == TileState.Active)
             {
-                case TileType.Normal:
-                    {
-                        //Instantiate(normalTilePrefab);
-                        break;
-                    }
-
-                case TileType.Mine:
-                    {
-                        //Instantiate(mineTilePrefab);
-                        break;
-                    }
-
+                State = TileState.Flag;
             }
+        }
+
+        public virtual int Sweep()
+        {
+            return 0;
+        }
+
+        public virtual void CreateTile()
+        {
+
         }
 
     }
 }
+

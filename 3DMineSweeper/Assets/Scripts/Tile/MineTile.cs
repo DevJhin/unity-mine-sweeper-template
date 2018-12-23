@@ -15,5 +15,14 @@ namespace MineSweeper
             
         }
 
+        public override int Sweep()
+        {
+            if (State == TileState.Active)
+            {
+                State = TileState.Sweeped;
+            }
+
+            return -1;
+        }
     }
 }

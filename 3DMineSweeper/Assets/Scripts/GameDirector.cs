@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 namespace MineSweeper
 {
     public class GameDirector : MonoBehaviour
@@ -11,7 +10,7 @@ namespace MineSweeper
         /// </summary>
         public static GameDirector instance;
 
-        [SerializeField] TileManager tileManager;
+        [SerializeField] StageManager stageManager;
         [SerializeField] AudioManager audioManager;
 
         [SerializeField] int tileRow;
@@ -30,38 +29,20 @@ namespace MineSweeper
             {
                 Destroy(gameObject);
             }
+
+            OnStageStart();
         }
 
-        private void Start()
+
+        public void OnStageStart() {
+            stageManager.GenerateTileData(tileRow, tileCol, mineNum);           
+        }
+
+        public void OnStageEnd()
         {
-            tileManager.GenerateTileData(tileRow, tileCol, mineNum);
+           
         }
 
-
-        public void ClickEvent(int row, int col) {
-
-            Sweep(row,col);
-        }
-
-        public void Sweep(int row, int col)
-        {
-
-            if (row < 0 || row >= tileRow || col < 0 || col >= tileCol)
-            {
-                return;
-            }
-            else
-            {
-                
-            }
-            Sweep(row - 1, col-1);
-            Sweep(row - 1, col);
-            Sweep(row + 1, col+1);
-
-            Sweep(row, col - 1);
-            Sweep(row, col + 1);
-
-        }
-
+   
     }
 }
