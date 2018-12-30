@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MineSweeper
 {
-    public class StageManager : MonoBehaviour
+    public class BoardManager : MonoBehaviour
     {
 
         private Tile[][] tiles;

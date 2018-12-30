@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace MineSweeper
 {
-    public enum TileType { Normal = 0, Mine = -1, Special }
-    public enum TileState { Active, Flag, Sweeped }
+    public enum TileType { Normal, Mine}
+    public enum TileState { Active, Flagged, Sweeped }
 
     public class Tile
     {
@@ -31,7 +31,7 @@ namespace MineSweeper
         {
             if (State == TileState.Active)
             {
-                State = TileState.Flag;
+                State = TileState.Flagged;
             }
         }
 

@@ -10,7 +10,7 @@ namespace MineSweeper
         /// </summary>
         public static GameDirector instance;
 
-        [SerializeField] StageManager stageManager;
+        [SerializeField] SManager stageManager;
         [SerializeField] AudioManager audioManager;
 
         [SerializeField] int tileRow;

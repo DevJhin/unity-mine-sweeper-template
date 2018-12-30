@@ -232,17 +232,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LoadManager.cs" />
+    <Compile Include="Assets\EventManager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\BoardManager.cs" />
     <Compile Include="Assets\Scripts\GameDirector.cs" />
-    <Compile Include="Assets\Scripts\StageManager.cs" />
+    <Compile Include="Assets\Scripts\LoadManager.cs" />
+    <Compile Include="Assets\Scripts\StageSettings.cs" />
     <Compile Include="Assets\Scripts\Tile\MineTile.cs" />
     <Compile Include="Assets\Scripts\Tile\NormalTile.cs" />
     <Compile Include="Assets\Scripts\Tile\Tile.cs" />
     <Compile Include="Assets\Scripts\TileEventTrigger.cs" />
+    <Compile Include="Assets\Scripts\TileSelector.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
-    <Compile Include="Assets\StageSettings.cs" />
-    <Compile Include="Assets\TileSelector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
