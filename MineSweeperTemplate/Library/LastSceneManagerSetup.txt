@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MineSweeperTemplate/Demo/MainMenu.unity
+- path: Assets/MineSweeperTemplate/Demo/Game.unity
   isLoaded: 1
   isActive: 1

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 97906914}
-  m_IndirectSpecularColor: {r: 0.7666035, g: 0.7666035, b: 0.7666035, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -375,6 +375,7 @@ MonoBehaviour:
     forceFirstTileToNormal: 1
   tileManager: {fileID: 256178636}
   audioManager: {fileID: 339912839}
+  mainCanvas: {fileID: 0}
 --- !u!4 &308852348
 Transform:
   m_ObjectHideFlags: 0
@@ -426,13 +427,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmAudioPlayer: {fileID: 845655898}
   sfxAudioPlayer: {fileID: 521075702}
-  gameBGM: {fileID: 0}
+  gameBGM: {fileID: 8300000, guid: 1bfb7594d9e515d43bcb175770cd8731, type: 3}
   successBGM: {fileID: 0}
   failBGM: {fileID: 0}
   clickSFX: {fileID: 0}
   cancelSFX: {fileID: 0}
   explodeSFX: {fileID: 0}
   sweepSFX: {fileID: 0}
+  tileClickSFX: {fileID: 0}
 --- !u!4 &339912840
 Transform:
   m_ObjectHideFlags: 0
@@ -1589,7 +1591,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 68.4
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1843,7 +1845,7 @@ PrefabInstance:
     - target: {fileID: 460378217922808340, guid: 2adef599db0a957429b59e3a95496ccc,
         type: 3}
       propertyPath: m_Name
-      value: Tile
+      value: Tile3D
       objectReference: {fileID: 0}
     - target: {fileID: 460378217922808336, guid: 2adef599db0a957429b59e3a95496ccc,
         type: 3}
@@ -1900,10 +1902,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1091190860, guid: 2adef599db0a957429b59e3a95496ccc, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1091190858, guid: 2adef599db0a957429b59e3a95496ccc, type: 3}
       propertyPath: m_havePropertiesChanged
       value: 1
@@ -1911,6 +1909,10 @@ PrefabInstance:
     - target: {fileID: 1091190858, guid: 2adef599db0a957429b59e3a95496ccc, type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091190860, guid: 2adef599db0a957429b59e3a95496ccc, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2adef599db0a957429b59e3a95496ccc, type: 3}

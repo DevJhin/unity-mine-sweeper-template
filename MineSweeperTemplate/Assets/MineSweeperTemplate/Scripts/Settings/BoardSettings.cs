@@ -11,7 +11,6 @@ namespace MineSweeperTemplate
 
         public int row;
         public int column;
-        public int height;
 
         public int mineTileNumber;
 

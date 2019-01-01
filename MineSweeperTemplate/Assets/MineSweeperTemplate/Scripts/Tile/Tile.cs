@@ -5,12 +5,10 @@ using UnityEngine.EventSystems;
 namespace MineSweeperTemplate
 {
     public enum TileType { Normal, Mine }
-    public enum TileState { Active, Flag, Sweeped }
+    public enum TileState { Activated, Flagged, Sweeped }
 
     public class Tile : MonoBehaviour
     {
-
-        public static TileSettings tileSettings;
 
         public TileType type;
         public TileState state;
@@ -20,26 +18,17 @@ namespace MineSweeperTemplate
         public int mineCount = 0;
 
         public List<Tile> adjacentTiles;
-        public TMPro.TextMeshPro textMesh;
 
-        public MeshRenderer meshRenderer;
 
-        private void Awake()
+        public virtual void OnFlag()
         {
-            textMesh.enabled = false;
-            adjacentTiles = new List<Tile>();
-        }
-
-
-        public virtual void OnFlagButtonClick()
-        {
-            if (state == TileState.Flag)
+            if (state == TileState.Flagged)
             {
-                state = TileState.Active;
+                state = TileState.Activated;
             }
-            else if (state == TileState.Active)
+            else if (state == TileState.Activated)
             {
-                state = TileState.Flag;
+                state = TileState.Flagged;
             }
 
         }
@@ -47,29 +36,12 @@ namespace MineSweeperTemplate
 
         public virtual void OnSweep()
         {
-            if (state == TileState.Active)
+            if (state == TileState.Activated)
             {
-                meshRenderer.material.color = tileSettings.color[mineCount];
-                textMesh.enabled = true;
-                textMesh.text = mineCount.ToString();
                 state = TileState.Sweeped;
             }
         }
 
-
-        public void OnClick(BaseEventData baseEventData)
-        {
-            PointerEventData pointerEventData = (PointerEventData)baseEventData;
-
-            if (pointerEventData.button == PointerEventData.InputButton.Left)
-            {
-                TileManager.instance.Sweep(this);
-            }
-            else if(pointerEventData.button == PointerEventData.InputButton.Right)
-            {
-                OnFlagButtonClick();
-            }
-        }
     }
 
 }

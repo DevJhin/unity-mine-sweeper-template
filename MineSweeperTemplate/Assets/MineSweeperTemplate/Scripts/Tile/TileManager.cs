@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MineSweeperTemplate
+namespace MineSweeperTemplate.Demo
 {
     public class TileManager : MonoBehaviour
     {
@@ -31,7 +31,6 @@ namespace MineSweeperTemplate
             {
                 Destroy(gameObject);
             }
-            Tile.tileSettings = tileSettings;
         }
 
         private void Start()
@@ -90,7 +89,7 @@ namespace MineSweeperTemplate
 
             SetAdjacentTiles();
             tileAlgorithm.LocateTiles(tiles, board.transform);
-            UpdateAdjacentMineCount();
+            CountAdjacentMine();
         }
 
         private void GenerateTile(int index, TileType type)
@@ -100,7 +99,7 @@ namespace MineSweeperTemplate
 
             tile.index = index;
             tile.type = type;
-            tile.state = TileState.Active;
+            tile.state = TileState.Activated;
 
             tiles.Add(tile);
         }
@@ -119,6 +118,7 @@ namespace MineSweeperTemplate
             {
                 case TileType.Mine:
                     {
+                        //SendEvent
                         Explode(tile);
                         break;
                     }
@@ -149,7 +149,7 @@ namespace MineSweeperTemplate
                 {
                     Tile tile = queue.Dequeue();
 
-                    if (tile.type == TileType.Normal && tile.state == TileState.Active)
+                    if (tile.type == TileType.Normal && tile.state == TileState.Activated)
                     {
                         tile.OnSweep();
 
@@ -166,7 +166,7 @@ namespace MineSweeperTemplate
             }
         }
 
-        protected void UpdateAdjacentMineCount()
+        protected void CountAdjacentMine()
         {
             foreach (Tile tile in tiles)
             {
