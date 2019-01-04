@@ -14,11 +14,13 @@ namespace MineSweeperTemplate.Demo
 
         public GameSettings gameSettings;
 
-        [SerializeField] TileManager tileManager;
+        [SerializeField] BoardManager tileManager;
         [SerializeField] AudioManager audioManager;
 
-        public Canvas mainCanvas;
+        private void OnEnable()
+        {
 
+        }
         private void Awake()
         {
             if (instance == null)
@@ -54,6 +56,7 @@ namespace MineSweeperTemplate.Demo
         {
             Time.timeScale = 0;
         }
+
 
     }
 }

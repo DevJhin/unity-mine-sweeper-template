@@ -19,7 +19,7 @@ namespace MineSweeperTemplate
         /// </summary>
         /// <param name="tiles"></param>
         /// <param name="board"></param>
-        public abstract void LocateTiles(List<Tile> tiles, Transform board);
+        public abstract void LocateTiles(List<Tile> tiles, BoardSettings settings);
 
     }
 }

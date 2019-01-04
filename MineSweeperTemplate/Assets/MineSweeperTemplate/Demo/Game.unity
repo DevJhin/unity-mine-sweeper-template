@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 256178635}
   - component: {fileID: 256178636}
   m_Layer: 0
-  m_Name: TileManager
+  m_Name: BoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,7 +375,6 @@ MonoBehaviour:
     forceFirstTileToNormal: 1
   tileManager: {fileID: 256178636}
   audioManager: {fileID: 339912839}
-  mainCanvas: {fileID: 0}
 --- !u!4 &308852348
 Transform:
   m_ObjectHideFlags: 0

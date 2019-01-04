@@ -9,6 +9,7 @@ namespace MineSweeperTemplate
 
     public class Tile : MonoBehaviour
     {
+        public static TileSettings tileSettings;
 
         public TileType type;
         public TileState state;
@@ -19,6 +20,8 @@ namespace MineSweeperTemplate
 
         public List<Tile> adjacentTiles;
 
+        public static event TileClickEventHandler TileClickEvent;
+        public delegate void TileClickEventHandler(Tile tile);
 
         public virtual void OnFlag()
         {
@@ -42,6 +45,19 @@ namespace MineSweeperTemplate
             }
         }
 
+        public virtual void OnClick(BaseEventData baseEventData)
+        {
+            PointerEventData pointerEventData = (PointerEventData)baseEventData;
+
+            if (pointerEventData.button == PointerEventData.InputButton.Left)
+            {
+                TileClickEvent(this);
+            }
+            else if (pointerEventData.button == PointerEventData.InputButton.Right)
+            {
+                OnFlag();
+            }
+        }
     }
 
 }

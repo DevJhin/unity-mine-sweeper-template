@@ -14,6 +14,8 @@ namespace MineSweeperTemplate
 
         public int mineTileNumber;
 
+        public Vector3 tileSize;
+        public float tileInterval;
         public int GetTileNumber()
         {
             return row*column;

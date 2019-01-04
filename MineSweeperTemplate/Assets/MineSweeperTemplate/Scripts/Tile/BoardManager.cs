@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace MineSweeperTemplate.Demo
 {
-    public class TileManager : MonoBehaviour
+    public class BoardManager : MonoBehaviour
     {
-        public static TileManager instance;
         private List<Tile> tiles;
 
         public GameObject board;
@@ -22,20 +21,13 @@ namespace MineSweeperTemplate.Demo
 
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Tile.TileClickEvent += Sweep;
         }
 
         private void Start()
         {
             boardSettings = GameDirector.instance.gameSettings.boardSettings;
+            Tile.tileSettings = tileSettings;
             switch (boardSettings.boardType)
             {
                 case BoardType.Rectangle:
@@ -88,7 +80,7 @@ namespace MineSweeperTemplate.Demo
             }
 
             SetAdjacentTiles();
-            tileAlgorithm.LocateTiles(tiles, board.transform);
+            tileAlgorithm.LocateTiles(tiles, boardSettings);
             CountAdjacentMine();
         }
 

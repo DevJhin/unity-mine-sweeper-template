@@ -57,15 +57,17 @@ namespace MineSweeperTemplate
             }
         }
 
-        public override void LocateTiles(List<Tile> tiles, Transform board)
+        public override void LocateTiles(List<Tile> tiles, BoardSettings settings)
         {
+            Vector3 startPos = new Vector3(settings.tileSize.x, 0, settings.tileSize.z);
+
             for (int row = 0; row < maxRow; row++)
             {
                 for (int col = 0; col < maxColumn; col++)
                 {
                     int index = GetIndex(row, col);
-                    tiles[index].transform.parent = board;
-                    tiles[index].transform.position = board.transform.position + new Vector3(col, 0, row);
+                    tiles[index].transform.localPosition = new Vector3(col, 0, row);
+                    
                 }
             }
 

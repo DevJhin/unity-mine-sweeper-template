@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace MineSweeperTemplate.Demo
 {
@@ -19,7 +20,7 @@ namespace MineSweeperTemplate.Demo
         {
             base.OnSweep();
 
-            meshRenderer.material.color = TileManager.instance.tileSettings.GetTextColor(mineCount);
+            meshRenderer.material.color = tileSettings.GetTextColor(mineCount);
             textMesh.enabled = true;
             textMesh.text = mineCount.ToString();
         }
@@ -29,9 +30,9 @@ namespace MineSweeperTemplate.Demo
             base.OnFlag();
         }
 
-        public virtual void OnClick()
+        public override void OnClick(BaseEventData baseEventData)
         {
-
+            base.OnClick(baseEventData);
 
         }
 
