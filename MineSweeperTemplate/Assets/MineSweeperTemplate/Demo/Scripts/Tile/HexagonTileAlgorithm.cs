@@ -7,18 +7,18 @@ namespace MineSweeperTemplate
     public class HexagonTileAlgorithm : TileAlgorithm
     {
         int size;
-        int line;
-
+        List<int> line;
+        
         public HexagonTileAlgorithm(int size)
         {
-            this.size=size;
+            this.size = size;
             for (int i = 0; i < size * 2 - 1; i++)
             {
                 line.Add(size);
             }
 
         }
-
+        
         public override void SetAdjacentTiles(Tile tile, List<Tile> tiles)
         {
             List<Tile> adjacentTiles = new List<Tile>();
@@ -72,6 +72,7 @@ namespace MineSweeperTemplate
             }
 
         }
+        
 
     }
     */

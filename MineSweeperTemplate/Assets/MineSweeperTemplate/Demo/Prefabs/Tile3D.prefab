@@ -258,6 +258,8 @@ MonoBehaviour:
   index: 0
   mineCount: 0
   adjacentTiles: []
+  meshRenderer: {fileID: 3254964371850290017}
+  textMesh: {fileID: 1091190858}
 --- !u!114 &5421213020186117449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +302,7 @@ GameObject:
   - component: {fileID: 2054040266036417742}
   - component: {fileID: 671469293278337619}
   - component: {fileID: 3254964371850290017}
+  - component: {fileID: 1048781900460102298}
   m_Layer: 9
   m_Name: Mesh
   m_TagString: Untagged
@@ -346,7 +349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ff58b7ccb845384fba387001a151fa1, type: 2}
+  - {fileID: 2100000, guid: 8a606c357f4c4cd42bbb3a16af80c3ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -366,3 +369,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1048781900460102298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048781900460102297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}

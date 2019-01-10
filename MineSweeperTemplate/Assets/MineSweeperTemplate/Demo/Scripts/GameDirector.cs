@@ -1,61 +1,84 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 namespace MineSweeperTemplate.Demo
 {
 
-
+    public enum GameEventType {GameStart, GameClear, GameOver}
+    
     public class GameDirector : MonoBehaviour
     {
-        /// <summary>
-        /// Singleton instance of GameDirector class
-        /// </summary>
-        public static GameDirector instance;
-
         public GameSettings gameSettings;
 
+        [Header("Game Managers")]
         [SerializeField] BoardManager tileManager;
         [SerializeField] AudioManager audioManager;
+        [SerializeField] LightManager lightManager;
+
+        [Header("Controllers")]
+        [SerializeField] CameraController cameraController;
+        [SerializeField] PhysicsRaycaster rayCaster;
+        
 
         private void OnEnable()
         {
+            BoardManager.GameOverEvent += OnGameOver;
+            BoardManager.GameClearEvent += OnGameClear;
 
+            Tile.TileFlagEvent += OnFlagged;
         }
+
+        private void OnDisable()
+        {
+            BoardManager.GameOverEvent -= OnGameOver;
+            BoardManager.GameClearEvent -= OnGameClear;
+
+            Tile.TileFlagEvent += OnFlagged;
+        }
+
         private void Awake()
         {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
 
         }
+
         private void Start()
         {
-            StartGame();
+            OnGameStart();
         }
 
+        public void OnFlagged()
+        {
 
-        public void StartGame()
+
+        }
+
+        public void OnGameStart()
         {
             tileManager.GenerateTiles();
+            lightManager.PlayLightEffect(GameEventType.GameStart);
           //  audioManager.PlayBGM();
         }
 
-
-        public void GameOver()
+        public void OnGameClear()
         {
-
+            rayCaster.enabled = false;
+            lightManager.PlayLightEffect(GameEventType.GameClear);
         }
 
-        public void PauseGame()
+
+        public void OnGameOver()
         {
+            rayCaster.enabled = false;
+            lightManager.PlayLightEffect(GameEventType.GameOver);
+        }
+
+        public void OnGamePause()
+        {
+            rayCaster.enabled = false;
             Time.timeScale = 0;
         }
+
 
 
     }

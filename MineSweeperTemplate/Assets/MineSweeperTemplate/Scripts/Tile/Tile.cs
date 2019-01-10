@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 namespace MineSweeperTemplate
 {
     public enum TileType { Normal, Mine }
-    public enum TileState { Activated, Flagged, Sweeped }
+    public enum TileState { Interactable, Flagged, Sweeped, Exploded }
 
     public class Tile : MonoBehaviour
     {
@@ -20,30 +20,44 @@ namespace MineSweeperTemplate
 
         public List<Tile> adjacentTiles;
 
-        public static event TileClickEventHandler TileClickEvent;
-        public delegate void TileClickEventHandler(Tile tile);
+        public static event TileExplodeEventHandler TileExplodeEvent;
+        public delegate void TileExplodeEventHandler(Tile tile);
+
+        public static event TileSweepEventHandler TileSweepEvent;
+        public delegate void TileSweepEventHandler(Tile tile);
+
+        public static event TileFlagEventHandler TileFlagEvent;
+        public delegate void TileFlagEventHandler();
 
         public virtual void OnFlag()
         {
             if (state == TileState.Flagged)
             {
-                state = TileState.Activated;
+                state = TileState.Interactable;
             }
-            else if (state == TileState.Activated)
+            else if (state == TileState.Interactable)
             {
                 state = TileState.Flagged;
             }
 
         }
 
+        public virtual void OnExplode()
+        {
+            if (state == TileState.Interactable)
+            {
+                state = TileState.Exploded;
+            }
+        }
 
         public virtual void OnSweep()
         {
-            if (state == TileState.Activated)
+            if (state == TileState.Interactable)
             {
                 state = TileState.Sweeped;
             }
         }
+
 
         public virtual void OnClick(BaseEventData baseEventData)
         {
@@ -51,10 +65,31 @@ namespace MineSweeperTemplate
 
             if (pointerEventData.button == PointerEventData.InputButton.Left)
             {
-                TileClickEvent(this);
+                Debug.Log("Left Click");
+                switch (type)
+                {
+                    case TileType.Mine:
+                        {
+                            if (state == TileState.Interactable)
+                            {
+                                TileExplodeEvent(this);
+                            }
+                            break;
+                        }
+                    case TileType.Normal:
+                        {
+                            if (state == TileState.Interactable)
+                            {
+                                TileSweepEvent(this);
+                            }
+                            break;
+                        }
+                }
             }
             else if (pointerEventData.button == PointerEventData.InputButton.Right)
             {
+                Debug.Log("Right Click");
+                TileFlagEvent();
                 OnFlag();
             }
         }

@@ -66,7 +66,7 @@ namespace MineSweeperTemplate
                 for (int col = 0; col < maxColumn; col++)
                 {
                     int index = GetIndex(row, col);
-                    tiles[index].transform.localPosition = new Vector3(col, 0, row);
+                    tiles[index].transform.localPosition = new Vector3(settings.tileSize.x * col, 0, -settings.tileSize.z * row);
                     
                 }
             }

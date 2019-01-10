@@ -13,14 +13,41 @@ namespace MineSweeperTemplate
 
         [Header("Material")]
         [SerializeField] Material activatedMaterial;
-        [SerializeField] Material sweepMaterial;
-        [SerializeField] Material flagMaterial;
-
-        [SerializeField] Material mineMaterial;
+        [SerializeField] Material sweepedMaterial;
+        [SerializeField] Material flaggedMaterial;
+        [SerializeField] Material explodedMaterial;
 
         public Color GetTextColor(int num)
         {
             return colors[num];
+        }
+
+        public Material GetTileMaterial(TileState state)
+        {
+            switch (state)
+            {
+                case TileState.Interactable:
+                    {
+                        return activatedMaterial;
+                    }
+                case TileState.Flagged:
+                    {
+                        return flaggedMaterial;
+                    }
+                case TileState.Sweeped:
+                    {
+                        return sweepedMaterial;
+                    }
+                case TileState.Exploded:
+                    {
+                        return explodedMaterial;
+                    }
+                default:
+                    {
+                        return null;
+                    }
+
+            }
         }
 
 

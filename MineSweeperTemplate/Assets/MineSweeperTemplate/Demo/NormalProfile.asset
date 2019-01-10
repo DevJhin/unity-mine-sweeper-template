@@ -39,10 +39,10 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.119
+    value: 0.149
   fastMode:
     overrideState: 1
-    value: 0
+    value: 1
 --- !u!114 &114474124240847654
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -83,22 +83,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.8
+    value: 1.23
   threshold:
     overrideState: 1
-    value: 0.87
+    value: 0.92
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0.505
   clamp:
     overrideState: 1
-    value: 65472
+    value: 50000
   diffusion:
     overrideState: 1
-    value: 7
+    value: 6.48
   anamorphicRatio:
     overrideState: 1
-    value: 0.1
+    value: -0.168
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -164,7 +164,7 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
+    overrideState: 1
     value: 0
   tint:
     overrideState: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: -0.03
+    value: 0.12
   contrast:
     overrideState: 0
     value: 0

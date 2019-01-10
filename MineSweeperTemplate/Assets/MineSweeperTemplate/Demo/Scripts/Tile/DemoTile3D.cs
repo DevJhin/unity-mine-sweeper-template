@@ -7,33 +7,55 @@ namespace MineSweeperTemplate.Demo
 {
     public class DemoTile3D : Tile
     {
-        private MeshRenderer meshRenderer;
-        private TMPro.TextMeshPro textMesh;
+        [SerializeField] MeshRenderer meshRenderer;
+        [SerializeField] TMPro.TextMeshPro textMesh;
 
         private void Awake()
         {
-            meshRenderer = GetComponent<MeshRenderer>();
-            textMesh = GetComponent<TMPro.TextMeshPro>();
+            textMesh.enabled = false;
         }
 
         public override void OnSweep()
         {
             base.OnSweep();
 
-            meshRenderer.material.color = tileSettings.GetTextColor(mineCount);
-            textMesh.enabled = true;
-            textMesh.text = mineCount.ToString();
+            meshRenderer.material = tileSettings.GetTileMaterial(state);
+
+            if (type == TileType.Normal)
+            {
+                if (mineCount != 0)
+                {
+                    textMesh.enabled = true;
+                    textMesh.color = tileSettings.GetTextColor(mineCount);
+                    textMesh.text = mineCount.ToString();
+                }
+                else
+                {
+                    textMesh.text = "";
+                }
+            }
+            else if (type == TileType.Mine)
+            {
+                textMesh.enabled = true;
+                textMesh.text = "X";
+            }
         }
 
         public override void OnFlag()
         {
             base.OnFlag();
+            meshRenderer.material = tileSettings.GetTileMaterial(state);
         }
 
         public override void OnClick(BaseEventData baseEventData)
         {
             base.OnClick(baseEventData);
 
+        }
+        public override void OnExplode()
+        {
+            base.OnExplode();
+            meshRenderer.material = tileSettings.GetTileMaterial(state);
         }
 
 

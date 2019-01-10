@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ab311a21719834d8f6fe3ca0511b85, type: 3}
+  m_Name: RectangleTileSettings 1
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0.88305783, b: 1, a: 1}
+  - {r: 1, g: 0.13679248, b: 0.13679248, a: 1}
+  - {r: 1, g: 0.5650014, b: 0.07075471, a: 1}
+  - {r: 1, g: 0.9238702, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.0056221485, a: 1}
+  - {r: 1, g: 0, b: 0.9345741, a: 1}
+  - {r: 0.3812499, g: 0, b: 1, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  activatedMaterial: {fileID: 2100000, guid: 8a606c357f4c4cd42bbb3a16af80c3ce, type: 2}
+  sweepedMaterial: {fileID: 0}
+  flaggedMaterial: {fileID: 0}
+  explodedMaterial: {fileID: 0}

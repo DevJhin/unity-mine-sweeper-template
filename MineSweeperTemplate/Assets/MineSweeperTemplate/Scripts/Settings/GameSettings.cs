@@ -24,5 +24,11 @@ namespace MineSweeperTemplate
         [Tooltip("Forces the first tile to be 'normal' tile, not 'mine' tile. This prevents from player finding a mine at the first click and ends at the just beginning")]
         public bool forceFirstTileToNormal = true;
 
+        [Tooltip("Enable AI")]
+        public bool enableAI = true;
+
+        [Tooltip("Disable animation/")]
+        public bool fastMode = true;
     }
+
 }
