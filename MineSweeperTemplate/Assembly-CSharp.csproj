@@ -65,10 +65,12 @@
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\GameDirector.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\LoadManager.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\MainMenu\MainMenuDirector.cs" />
+    <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\PointerEffect.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\Tile\DemoTile2D.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\Tile\DemoTile3D.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\Tile\HexagonTileAlgorithm.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\Tile\RectangleTileAlgorithm.cs" />
+    <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\Tile\RectangleTileAlgorithm1.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Demo\Scripts\UIManager.cs" />
     <Compile Include="Assets\MineSweeperTemplate\LightManager.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Scripts\AIHelper.cs" />
@@ -81,8 +83,8 @@
     <Compile Include="Assets\MineSweeperTemplate\Scripts\Tile\Tile.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Scripts\Tile\TileAlgorithm.cs" />
     <Compile Include="Assets\MineSweeperTemplate\Scripts\Utils.cs" />
-    <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\PointerEffect.cs" />
+    <Compile Include="Assets\Runner.cs" />
+    <Compile Include="Assets\TestManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
@@ -100,9 +102,6 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>C:/Users/Administrator/Documents/GitHub/Unity/3D-mine-sweeper-in-unity/MineSweeperTemplate/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Administrator/Documents/GitHub/Unity/3D-mine-sweeper-in-unity/MineSweeperTemplate/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -120,6 +119,12 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>C:/Users/Administrator/Documents/GitHub/Unity/3D-mine-sweeper-in-unity/MineSweeperTemplate/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>C:/Users/Administrator/Documents/GitHub/Unity/3D-mine-sweeper-in-unity/MineSweeperTemplate/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>C:/Users/Administrator/Documents/GitHub/Unity/3D-mine-sweeper-in-unity/MineSweeperTemplate/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.0f2/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

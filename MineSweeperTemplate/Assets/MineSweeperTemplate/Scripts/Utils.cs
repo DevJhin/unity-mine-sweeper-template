@@ -7,24 +7,38 @@ namespace MineSweeperTemplate
     public struct Utils
     {
         /// <summary>
-        /// Shuffles data in list using Fisher-Yates algorithm
+        /// Shuffles a list by using Fisher-Yates algorithm
         /// </summary>
         public static void Shuffle<T>(List<T> list)
         {
-            int num = list.Count;
+            int size = list.Count;
 
-            for (int i = 0; i < list.Count; i++)
+            for (int index = 0; index < size; index++)
             {
-                int randIndex = Random.Range(i, num);
+                int randIndex = Random.Range(index, size);
 
-                T temp = list[i];
-                list[i] = list[randIndex];
+                T temp = list[index];
+                list[index] = list[randIndex];
                 list[randIndex] = temp;
-                
-                num--;
             }
         }
 
+        /// <summary>
+        /// Shuffles an array by using Fisher-Yates algorithm
+        /// </summary>
+        public static void Shuffle<T>(T[] data)
+        {
+            int size = data.Length;
+
+            for (int index = 0; index < size; index++)
+            {
+                int randIndex = Random.Range(index, size);
+
+                T temp = data[index];
+                data[index] = data[randIndex];
+                data[randIndex] = temp;
+            }
+        }
 
     }
 

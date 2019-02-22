@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RectangleBoard
   m_EditorClassIdentifier: 
   boardType: 0
-  row: 50
-  column: 50
-  mineTileNumber: 50
+  row: 100
+  column: 100
+  mineTileNumber: 397
   tileSize: {x: 0.07, y: 0, z: 0.07}
-  tileInterval: 0.1
+  tileInterval: 0.01

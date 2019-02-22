@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MineSweeperTemplate/Demo/Game.unity
+- path: Assets/MineSweeperTemplate/Scripts/LerpTest.unity
   isLoaded: 1
   isActive: 1

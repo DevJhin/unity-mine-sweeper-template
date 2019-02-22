@@ -19,6 +19,10 @@ namespace MineSweeperTemplate.Demo
            // mineCountText = "Mines: " + 12.ToString(); 
         }
 
+        public void SetMineText(int mineCount)
+        {
+            mineCountText.text = "Mines" + mineCount.ToString();
+        }
 
 
     }

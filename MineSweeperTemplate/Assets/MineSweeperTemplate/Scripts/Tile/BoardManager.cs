@@ -13,6 +13,8 @@ namespace MineSweeperTemplate.Demo
         public GameObject board;
 
         public TileAlgorithm tileAlgorithm;
+
+
         [Header("Debug")]
         public int sweepedTileCount = 0;
         public int normalTileCount = 0;
@@ -26,6 +28,8 @@ namespace MineSweeperTemplate.Demo
 
         [Header("MineSweep")]
         public float sweepIntervalTime;
+
+        public bool isFirstClick=true;
 
         public static event GameOverEventHandler GameOverEvent;
         public delegate void GameOverEventHandler();
@@ -48,7 +52,10 @@ namespace MineSweeperTemplate.Demo
         private void Start()
         {
             Tile.tileSettings = tileSettings;
-
+            Tile[,,] test = new Tile[3,3,3];
+            foreach (Tile tile in test)
+            {
+            }
             switch (boardSettings.boardType)
             {
                 case BoardType.Rectangle:
@@ -63,7 +70,7 @@ namespace MineSweeperTemplate.Demo
                     }
                 case BoardType.Cube:
                     {
-                        //tileAlgorithm = new CubeTileAlgorithm(4);
+                        tileAlgorithm = new CubeTileAlgorithm(boardSettings.row, boardSettings.column, boardSettings.row);
                         break;
                     }
             }
@@ -91,7 +98,9 @@ namespace MineSweeperTemplate.Demo
             MineSweeperTemplate.Utils.Shuffle(tileData);    //Shuffles data
 
             tiles = new List<Tile>();
+
             mineTiles = new List<Tile>();
+            normalTiles = new List<Tile>();
 
             for (int i = 0; i < tileData.Count; i++)
             {
@@ -100,7 +109,6 @@ namespace MineSweeperTemplate.Demo
 
             SetAdjacentTiles();
             tileAlgorithm.LocateTiles(tiles, boardSettings);
-
 
             ComputeAdjacentMineCount();
         }
@@ -121,6 +129,10 @@ namespace MineSweeperTemplate.Demo
             {
                 mineTiles.Add(tile);
             }
+            else if (tile.type == TileType.Normal)
+            {
+                normalTiles.Add(tile);
+            }
 
         }
 
@@ -136,18 +148,30 @@ namespace MineSweeperTemplate.Demo
 
         public void Sweep(Tile tile)
         {
+            isFirstClick = false;
             StartCoroutine(ProceduralSweep(tile));
         }
 
 
         private void Explode(Tile tile)
         {
-            foreach (Tile mineTile in mineTiles)
+            if (isFirstClick)
             {
-                mineTile.OnExplode();
+                SwapTile(normalTiles[Random.Range(0,normalTiles.Count)], tile);
+                isFirstClick = false;
+                Sweep(tile);
             }
-            GameOverEvent();
+            else
+            {             
+                foreach (Tile mineTile in mineTiles)
+                {
+                    mineTile.OnExplode();
+                }
+
+                GameOverEvent();
+               }
             Debug.Log("Explode!");
+            isFirstClick = false;
         }
 
 
@@ -224,9 +248,26 @@ namespace MineSweeperTemplate.Demo
         /// <summary>
         /// Swap the tile by changing their data
         /// </summary>
-        private void SwapTile(Tile alpha, Tile beta)
+        private void SwapTile(Tile normalTile, Tile mineTile)
         {
+            normalTile.type = TileType.Mine;
+            mineTile.type = TileType.Normal;
 
+            normalTiles.Remove(normalTile);
+            normalTiles.Add(mineTile);
+
+            mineTiles.Remove(mineTile);
+            mineTiles.Add(normalTile);
+
+            foreach (Tile adjacentTile in normalTile.adjacentTiles)
+            {
+                adjacentTile.mineCount += 1;
+            }
+
+            foreach (Tile adjacentTile in mineTile.adjacentTiles)
+            {
+                adjacentTile.mineCount -= 1;
+            }
         }
     }
 }

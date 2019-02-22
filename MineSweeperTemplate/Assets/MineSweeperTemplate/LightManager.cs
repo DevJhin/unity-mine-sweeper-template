@@ -56,12 +56,13 @@ namespace MineSweeperTemplate.Demo
             isPlaying = true;
             Color startColor = directionalLight.color;
             float startIntensity = directionalLight.intensity;
-            playTime = 0;
 
-            while (playTime < 1)
+            playTime = 0;
+            float timeScale = 1 / targetLightSettings.duration;
+            while (playTime < targetLightSettings.duration)
             {
-                directionalLight.color = Color.Lerp(startColor, targetLightSettings.color, playTime);
-                directionalLight.intensity = Mathf.Lerp(startIntensity, targetLightSettings.intensity, playTime);
+                directionalLight.color = Color.Lerp(startColor, targetLightSettings.color, playTime * timeScale);
+                directionalLight.intensity = Mathf.Lerp(startIntensity, targetLightSettings.intensity, playTime * timeScale);
                 playTime += Time.deltaTime;
                 yield return null;
             }
@@ -75,5 +76,6 @@ namespace MineSweeperTemplate.Demo
     {
         public Color color;
         public float intensity;
+        public float duration;
     }
 }

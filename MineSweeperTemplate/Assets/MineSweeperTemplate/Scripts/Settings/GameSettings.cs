@@ -19,7 +19,7 @@ namespace MineSweeperTemplate
 
         [Header("Advanced")]
         [Tooltip("Counts the adjacent mines for each tiles before the game starts. This may increase the loading time, but it can reduce the calculation during runtime")]
-        public bool countAdjacentMinesBeforePlay = true;
+        public bool precalculateAdjacentMine = true;
 
         [Tooltip("Forces the first tile to be 'normal' tile, not 'mine' tile. This prevents from player finding a mine at the first click and ends at the just beginning")]
         public bool forceFirstTileToNormal = true;
